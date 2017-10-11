@@ -10,6 +10,9 @@ using DI2.Models;
 
 namespace DI_2
 {
+    /// <summary>
+    /// https://stackoverflow.com/questions/46695557/asp-net-core-2-0-dependency-injection-default-instance
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
