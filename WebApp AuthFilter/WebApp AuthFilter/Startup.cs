@@ -6,13 +6,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DI2.Models;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
-namespace DI_2
+namespace WebApp_AuthFilter
 {
-    /// <summary>
-    /// https://stackoverflow.com/questions/46695557/asp-net-core-2-0-dependency-injection-default-instance
-    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -25,20 +23,19 @@ namespace DI_2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddAuthentication(Microsoft.AspNetCore.Server.HttpSys.HttpSysDefaults.AuthenticationScheme);
+            //services.AddAuthentication();
 
-            //services.AddTransient(typeof(MyObject));
+            //services.AddMvc();
 
-            //services.AddScoped<MyObject>();
-
-            services.AddScoped(provider =>
-            {
-                var res = new MyObject
-                {
-                    Message = "Hello World 2"
-                };
-                return res;
-            });
+            services.AddMvc()
+                    .AddMvcOptions(options =>
+                    {
+                        var authPolicy = new AuthorizationPolicyBuilder()
+                               .AddRequirements(new TestRequirement())
+                               .Build();
+                        options.Filters.Add(new AuthorizeFilter(authPolicy));
+                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +52,8 @@ namespace DI_2
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

@@ -6,13 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DI2.Models;
 
-namespace DI_2
+namespace Web_App_AuthFilter_2
 {
-    /// <summary>
-    /// https://stackoverflow.com/questions/46695557/asp-net-core-2-0-dependency-injection-default-instance
-    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -26,19 +22,6 @@ namespace DI_2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            //services.AddTransient(typeof(MyObject));
-
-            //services.AddScoped<MyObject>();
-
-            services.AddScoped(provider =>
-            {
-                var res = new MyObject
-                {
-                    Message = "Hello World 2"
-                };
-                return res;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
