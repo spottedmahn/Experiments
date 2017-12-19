@@ -7,6 +7,7 @@ In `ApplicationManifest.xml` I've defined an `<EnvironmentOverrides>` w/ one ent
 
 [Stack Overflow post](https://stackoverflow.com/questions/47888749/register-servicefabricapplicationtype-value-cannot-be-null-parameter-name-so)
 
+Service Fabric Issue: [#237](https://github.com/Azure/service-fabric-issues/issues/718)
 
 ---
 
