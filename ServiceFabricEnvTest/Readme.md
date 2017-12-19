@@ -5,6 +5,12 @@ Service Fabric App Expirement to debug:
 
 In `ApplicationManifest.xml` I've defined an `<EnvironmentOverrides>` w/ one entry but I didn't define it in `ServiceManifest.xml`.  This produces a not so easy error message to debug/troubleshoot.
 
+[Stack Overflow post](https://stackoverflow.com/questions/47888749/register-servicefabricapplicationtype-value-cannot-be-null-parameter-name-so)
+
+
+---
+
+More complete log from debug window:
 
 >-------- Package: Project: Application1 succeeded, Time elapsed: 00:00:09.4086651 --------
 >Started executing script 'Deploy-FabricApplication.ps1'.
