@@ -9,7 +9,8 @@ const routes: Routes = [
   }
   , {
     path: 'dashboard',
-    loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+    //loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+    loadChildren: './dashboard/dashboard.module#DashboardModule'
   }
 ];
 
