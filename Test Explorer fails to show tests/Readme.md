@@ -4,7 +4,7 @@ Reference: [GitHub Issue](https://github.com/Microsoft/testfx/issues/241)
 
 1. Create a Class Library (full framework v4.6.2)
 1. Add a nuget reference to [System.Runtime v4.3.0](https://www.nuget.org/packages/System.Runtime/4.3.0)
-1. Create a sample method that will be call in your tests
+1. Create a sample method that will be called in your tests
    ```csharp
     public static string GetString()
     {
