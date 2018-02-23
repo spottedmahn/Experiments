@@ -21,3 +21,4 @@ Reference: [GitHub Issue](https://github.com/Microsoft/testfx/issues/241)
 1. Verify the test is no longer discoverable
 1. Verify test output window says
     >The given assembly name or codebase was invalid. (Exception from HRESULT: 0x80131047)
+1. If you comment out the binding redirect in app.config for `"System.Runtime"` it will discover the tests
