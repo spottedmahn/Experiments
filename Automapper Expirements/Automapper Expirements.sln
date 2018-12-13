@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer Value Resolvers", "Customer Value Resolvers\Customer Value Resolvers.csproj", "{DC63488F-0031-42C7-94BE-54941FDA542F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer Value Resolvers Attempt 2", "Customer Value Resolvers Attempt 2\Customer Value Resolvers Attempt 2.csproj", "{CA276B31-DD08-44B0-9563-41E89C359D6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC63488F-0031-42C7-94BE-54941FDA542F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC63488F-0031-42C7-94BE-54941FDA542F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC63488F-0031-42C7-94BE-54941FDA542F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC63488F-0031-42C7-94BE-54941FDA542F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA276B31-DD08-44B0-9563-41E89C359D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA276B31-DD08-44B0-9563-41E89C359D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA276B31-DD08-44B0-9563-41E89C359D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA276B31-DD08-44B0-9563-41E89C359D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {631FA03D-A88C-473B-AD43-31AA9168A9A3}
+	EndGlobalSection
+EndGlobal
