@@ -10,7 +10,7 @@ namespace ClassLibrary
     {
         public static string GetString()
         {
-            return "hello world";
+            return "Hello World";
         }
     }
 }
