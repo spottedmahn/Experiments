@@ -1,0 +1,11 @@
+DEFINE CLASS MikeD AS CUSTOM OLEPUBLIC
+
+	FUNCTION HelloWorld() AS STRING
+	RETURN "Hello World"
+	ENDFUNC
+	
+	FUNCTION ParameterTest(someVariable AS STRING)
+	RETURN someVariable
+	ENDFUNC
+
+ENDDEFINE
