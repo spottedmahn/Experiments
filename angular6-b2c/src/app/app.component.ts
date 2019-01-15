@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   //Logger has other optional parameters like piiLoggingEnabled which can be assigned as shown aabove. Please refer to the docs to see the full list and their default values.
 
   private loggerCallback(logLevel, message, piiLoggingEnabled) {
-    //console.debug('msal logging', message);
+    console.debug('msal logging', message);
   }
   private userAgentApplication = new UserAgentApplication(this.applicationConfig.clientID, this.applicationConfig.authority, this.authCallback, { logger: this.msalLogger, cacheLocation: 'localStorage' }); //logger and cacheLocation are optional parameters.
   //userAgentApplication has other optional parameters like redirectUri which can be assigned as shown above.Please refer to the docs to see the full list and their default values.
@@ -46,10 +46,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.login();
+    //not working w/ angular 6
+    //this.login();
   }
 
-  private login(){
+  login(){
     if (!this.userAgentApplication.getUser()) {
       console.debug('user not signed in, redirecting');
       this.userAgentApplication.loginRedirect();
