@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows Auth Expirement", "Windows Auth Expirement\Windows Auth Expirement.csproj", "{12F1C173-D430-44A6-BEDB-AC649E56D8B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows Auth Expirement 2.2", "Windows Auth Expirement 2.2\Windows Auth Expirement 2.2.csproj", "{FAD741D6-0E26-4EE6-8D1E-333A37A649B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12F1C173-D430-44A6-BEDB-AC649E56D8B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F1C173-D430-44A6-BEDB-AC649E56D8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F1C173-D430-44A6-BEDB-AC649E56D8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F1C173-D430-44A6-BEDB-AC649E56D8B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD741D6-0E26-4EE6-8D1E-333A37A649B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD741D6-0E26-4EE6-8D1E-333A37A649B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD741D6-0E26-4EE6-8D1E-333A37A649B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD741D6-0E26-4EE6-8D1E-333A37A649B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2314939F-B558-4A04-8751-140D2CFD53E9}
+	EndGlobalSection
+EndGlobal
