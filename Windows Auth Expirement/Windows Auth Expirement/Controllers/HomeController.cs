@@ -9,36 +9,29 @@ namespace Windows_Auth_Expirement.Controllers
     public class HomeController : Controller
     {
         [Authorize]
-        //[Authorize(Roles = "OMS API")]
+        //this works
+        //[Authorize(Roles = "SOME GROUP")]
         public IActionResult Index()
         {
-            var blah1 = HttpContext.User.IsInRole("CEI-00638\\OMS API");
-            var blah2 = HttpContext.User.IsInRole("OMS API");
-            var blah3 = HttpContext.User.IsInRole(@"CEI.DOMAIN\CEI Corporate Portal Users Group");
-            var blah4 = HttpContext.User.IsInRole("Domain Users");
-            //var blah6 = HttpContext.User.IsInRole("Domain Users 2");
-            var blah5 = HttpContext.User.Identity.AuthenticationType;
+            var blah1 = HttpContext.User.IsInRole("MY-COMPUTER-NAME\\SOME GROUP");
+            var blah2 = HttpContext.User.IsInRole("SOME GROUP");
             return View();
         }
 
         [Authorize(AuthenticationSchemes = "Windows")]
+        //this doesn't work
+        //[Authorize(Roles = "SOME GROUP", AuthenticationSchemes = "Windows")]
         public ActionResult About()
         {
-            var blah1 = HttpContext.User.IsInRole("CEI-00638\\OMS API");
-            var blah2 = HttpContext.User.IsInRole("OMS API");
-            var blah3 = HttpContext.User.IsInRole(@"CEI.DOMAIN\CEI Corporate Portal Users Group");
-            var blah4 = HttpContext.User.IsInRole("Domain Users");
-            var blah5 = HttpContext.User.Identity.AuthenticationType;
-            var blah6 = HttpContext.User.IsInRole("Domain Users 2");
+            var blah1 = HttpContext.User.IsInRole("MY-COMPUTER-NAME\\SOME GROUP");
+            var blah2 = HttpContext.User.IsInRole("SOME GROUP");
 
-            //var blah9 = new ClaimsPrincipal(HttpContext.User.Identity);
-            //var blah10 = blah9.IsInRole("CEI-00638\\OMS API");
+            //this works though
+            var windowsIdentity = HttpContext.User.Identity as WindowsIdentity;
+            var windowsUser = new WindowsPrincipal(windowsIdentity);
+            var hasRole = windowsUser.IsInRole("MY-COMPUTER-NAME\\SOME GROUP");
 
-            var blah8 = HttpContext.User.Identity as WindowsIdentity;
-            var windowsUser = new WindowsPrincipal(blah8);
-            var hasOmsApiRole = windowsUser.IsInRole("CEI-00638\\OMS API");
-
-            ViewData["Message"] = $"hasOmsApiRole: {hasOmsApiRole}";
+            ViewData["Message"] = $"hasRole: {hasRole}";
 
             return View();
         }
