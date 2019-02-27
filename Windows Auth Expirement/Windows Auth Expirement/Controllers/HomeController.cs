@@ -36,6 +36,8 @@ namespace Windows_Auth_Expirement.Controllers
             return View();
         }
 
+        //[Authorize("OMS API Orig")]
+        [Authorize("OMS API")]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
