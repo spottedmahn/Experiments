@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IIS;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -77,7 +78,7 @@ namespace Windows_and_Cookie_Auth_Expirement.Controllers
             return View();
         }
 
-        [Authorize(AuthenticationSchemes = "Windows")]
+        [Authorize(AuthenticationSchemes = IISServerDefaults.AuthenticationScheme)]
         public IActionResult WindowsAuth()
         {
             ViewBag.Name = User.Identity.Name;
