@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.IISIntegration;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WindowsAuthExpirement.Options;
-using WindowsAuthExpirement.Security;
 
-namespace Windows_Auth_Expirement
+namespace Windows_and_Cookie_Auth_Expirement
 {
     public class Startup
     {
@@ -21,27 +19,19 @@ namespace Windows_Auth_Expirement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var securityOptions = Configuration.GetSection("Security").Get<SecurityOptions>();
-
-            services.AddAuthentication(IISDefaults.AuthenticationScheme);
-            services.AddAuthorization(options =>
+            services.Configure<CookiePolicyOptions>(options =>
             {
-                //doesn't work (as expected)
-                //options.AddPolicy("OMS API Orig", policy =>
-                //{
-                //    policy.AddAuthenticationSchemes("Windows");
-                //    policy.RequireAuthenticatedUser();
-                //    policy.RequireRole("OMS API");
-                //});
-
-                options.AddPolicy("OMS API", policy =>
-                {
-                    policy.Requirements.Add(new OmsApiRequirement(securityOptions.OmsApiAllowedGroups));
-                    policy.AddAuthenticationSchemes("Windows");
-                });
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddSingleton<IAuthorizationHandler, OmsApiHandler>();
-            services.AddMvc();
+
+            services.AddAuthentication()
+                .AddCookie();
+
+            services.AddAuthorization();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,15 +39,18 @@ namespace Windows_Auth_Expirement
         {
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             app.UseMvc(routes =>
             {
