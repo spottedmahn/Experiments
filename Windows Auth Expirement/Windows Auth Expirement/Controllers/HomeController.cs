@@ -29,9 +29,10 @@ namespace Windows_Auth_Expirement.Controllers
             //this works though
             var windowsIdentity = HttpContext.User.Identity as WindowsIdentity;
             var windowsUser = new WindowsPrincipal(windowsIdentity);
-            var hasRole = windowsUser.IsInRole("MY-COMPUTER-NAME\\SOME GROUP");
+            var role = "[MY-COMPUTER-NAME || AD GROUP NAME]\\[GROUP NAME]";
+            var isInRole = windowsUser.IsInRole(role);
 
-            ViewData["Message"] = $"hasRole: {hasRole}";
+            ViewData["Message"] = $"isInRole: {isInRole}";
 
             return View();
         }
