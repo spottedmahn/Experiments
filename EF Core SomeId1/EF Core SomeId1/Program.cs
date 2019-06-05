@@ -1,6 +1,4 @@
 ﻿using ConsoleApp.SQLite;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 
@@ -10,11 +8,6 @@ namespace EF_Core_SomeId1
     {
         static void Main(string[] args)
         {
-            var serviceCollection = new ServiceCollection();
-            ConfigureServices(serviceCollection);
-
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-
             using (var db = new BloggingContext())
             {
                 db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/adonet" });
@@ -52,11 +45,6 @@ namespace EF_Core_SomeId1
                     Console.WriteLine($"{rec.Id} - {rec.FirstPost}");
                 }
             }
-        }
-
-        private static void ConfigureServices(IServiceCollection services)
-        {
-            services.AddLogging(configure => configure.AddDebug());
         }
     }
 }
