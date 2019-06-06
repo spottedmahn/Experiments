@@ -11,6 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF Core SomeId1 - Copy 2", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{054FB18C-7464-40BC-9F66-BAE8F64ADF72}"
 	ProjectSection(SolutionItems) = preProject
+		debug window.log.txt = debug window.log.txt
 		readme.md = readme.md
 	EndProjectSection
 EndProject
