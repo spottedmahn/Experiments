@@ -1,4 +1,5 @@
 ﻿using ConsoleApp.SQLite;
+using EF_Core_SomeId1.Models;
 using System;
 using System.Linq;
 
@@ -7,6 +8,13 @@ namespace EF_Core_SomeId1
     class Program
     {
         static void Main(string[] args)
+        {
+            WriteData();
+
+            ReadData();
+        }
+
+        private static void WriteData()
         {
             using (var db = new BloggingContext())
             {
@@ -29,7 +37,10 @@ namespace EF_Core_SomeId1
                 });
                 db.SaveChanges();
             }
+        }
 
+        private static void ReadData()
+        {
             using (var db = new BloggingContext())
             {
                 var query = db.Blogs
