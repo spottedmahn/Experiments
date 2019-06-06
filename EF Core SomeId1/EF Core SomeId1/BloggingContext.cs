@@ -1,11 +1,10 @@
 ﻿//https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite
 
 
+using EF_Core_SomeId1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Debug;
-using SQLite;
-using System.Collections.Generic;
 
 namespace ConsoleApp.SQLite
 {
@@ -43,29 +42,5 @@ namespace ConsoleApp.SQLite
 
             //base.OnModelCreating(modelBuilder);
         }
-    }
-
-    public abstract class Entity
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-    }
-
-    public class Blog : Entity
-    {
-        //public int BlogId { get; set; }
-        public string Url { get; set; }
-
-        public ICollection<Post> Posts { get; set; }
-    }
-
-    public class Post : Entity
-    {
-        //public int PostId { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-
-        public int BlogId { get; set; }
-        public Blog Blog { get; set; }
     }
 }
