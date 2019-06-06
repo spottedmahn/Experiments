@@ -14,6 +14,7 @@ namespace ConsoleApp.SQLite
     = new LoggerFactory(new[] { new DebugLoggerProvider() });
 
         public DbSet<Blog> Blogs { get; set; }
+
         public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
