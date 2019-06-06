@@ -7,3 +7,5 @@ VALUES (@p0, @p1, @p2, @p3);
 SELECT "PostId"  
 FROM "Posts"  
 WHERE changes() = 1 AND "PostId" = last_insert_rowid();  
+
+![Db Schema](readme-images/db-schema.png)
