@@ -1,6 +1,8 @@
 ﻿using ConsoleApp.SQLite;
 using EF_Core_SomeId1.Models;
+using Pastel;
 using System;
+using System.Drawing;
 using System.Linq;
 
 namespace EF_Core_SomeId1
@@ -9,26 +11,29 @@ namespace EF_Core_SomeId1
     {
         static void Main(string[] args)
         {
-            WriteData();
+            WriteBlog();
 
-            ReadData();
+            WriteBlogPost();
+
+            ReadBlogs();
+
+            ReadBlogPosts();
         }
 
-        private static void WriteData()
+        private static void WriteBlog()
         {
             using (var db = new BloggingContext())
             {
                 db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/adonet" });
                 var count = db.SaveChanges();
-                Console.WriteLine("{0} records saved to database", count);
+                Console.WriteLine($"{count.ToString().Pastel(Color.Aqua)} blog records saved to database");
+            }
+        }
 
-                Console.WriteLine();
-                Console.WriteLine("All blogs in database:");
-                foreach (var blog in db.Blogs)
-                {
-                    Console.WriteLine(" - {0}", blog.Url);
-                }
-
+        private static void WriteBlogPost()
+        {
+            using (var db = new BloggingContext())
+            {
                 db.Posts.Add(new Post
                 {
                     Blog = db.Blogs.First(),
@@ -39,7 +44,20 @@ namespace EF_Core_SomeId1
             }
         }
 
-        private static void ReadData()
+        private static void ReadBlogs()
+        {
+            using (var db = new BloggingContext())
+            {
+                Console.WriteLine();
+                Console.WriteLine("All blogs in database:".Pastel(Color.Aqua));
+                foreach (var blog in db.Blogs)
+                {
+                    Console.WriteLine(" - {0}", blog.Url);
+                }
+            }
+        }
+
+        private static void ReadBlogPosts()
         {
             using (var db = new BloggingContext())
             {
@@ -51,6 +69,10 @@ namespace EF_Core_SomeId1
                                 });
 
                 var blah = query.ToList();
+
+                Console.WriteLine();
+                Console.WriteLine("All blog post in database:".Pastel(Color.Aqua));
+
                 foreach (var rec in blah)
                 {
                     Console.WriteLine($"{rec.Id} - {rec.FirstPost}");

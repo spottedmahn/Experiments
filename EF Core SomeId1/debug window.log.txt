@@ -1,0 +1,181 @@
+Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+Microsoft.EntityFrameworkCore.Database.Transaction:Debug: Beginning transaction with isolation level 'Serializable'.
+Microsoft.EntityFrameworkCore.Database.Command:Debug: Executing DbCommand [Parameters=[@p0='http://blogs.msdn.com/adonet' (Size = 28)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Blogs" ("Url")
+VALUES (@p0);
+SELECT "BlogId"
+FROM "Blogs"
+WHERE changes() = 1 AND "BlogId" = last_insert_rowid();
+Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (23ms) [Parameters=[@p0='http://blogs.msdn.com/adonet' (Size = 28)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Blogs" ("Url")
+VALUES (@p0);
+SELECT "BlogId"
+FROM "Blogs"
+WHERE changes() = 1 AND "BlogId" = last_insert_rowid();
+Microsoft.EntityFrameworkCore.ChangeTracking:Debug: Foreign key property 'Blog.Id' detected as changed from '-2147482647' to '2' for entity with key '{Id: 2}'.
+Microsoft.EntityFrameworkCore.Database.Command:Debug: A data reader was disposed.
+Microsoft.EntityFrameworkCore.Database.Transaction:Debug: Committing transaction.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closing connection to database 'main' on server 'C:\Users\mdepouw\source\repos\GitHub\spottedmahn\Experiments\EF Core SomeId1\EF Core SomeId1\bin\Debug\netcoreapp2.1\blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closed connection to database 'main' on server 'blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Transaction:Debug: Disposing transaction.
+Microsoft.EntityFrameworkCore.ChangeTracking:Debug: The 'Blog' entity with key '{Id: 2}' tracked by 'BloggingContext' changed from 'Added' to 'Unchanged'.
+Microsoft.EntityFrameworkCore.Update:Debug: SaveChanges completed for 'BloggingContext' with 1 entities written to the database.
+Microsoft.EntityFrameworkCore.Query:Debug: Compiling query model: 
+'from Blog <generated>_0 in DbSet<Blog>
+select [<generated>_0]'
+Microsoft.EntityFrameworkCore.Query:Debug: Optimized query model: 
+'from Blog <generated>_0 in DbSet<Blog>
+select [<generated>_0]'
+Microsoft.EntityFrameworkCore.Query:Debug: (QueryContext queryContext) => IEnumerable<Blog> _InterceptExceptions(
+    source: IEnumerable<Blog> _TrackEntities(
+        results: IEnumerable<Blog> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT "b"."BlogId", "b"."Url"
+                FROM "Blogs" AS "b", 
+            shaper: UnbufferedEntityShaper<Blog>), 
+        queryContext: queryContext, 
+        entityTrackingInfos: { itemType: Blog }, 
+        entityAccessors: List<Func<Blog, object>> 
+        { 
+            Func<Blog, Blog>, 
+        }
+    ), 
+    contextType: ConsoleApp.SQLite.BloggingContext, 
+    logger: DiagnosticsLogger<Query>, 
+    queryContext: queryContext)
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Opening connection to database 'main' on server 'blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Opened connection to database 'main' on server 'C:\Users\mdepouw\source\repos\GitHub\spottedmahn\Experiments\EF Core SomeId1\EF Core SomeId1\bin\Debug\netcoreapp2.1\blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Command:Debug: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+Microsoft.EntityFrameworkCore.Database.Command:Debug: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "b"."BlogId", "b"."Url"
+FROM "Blogs" AS "b"
+Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "b"."BlogId", "b"."Url"
+FROM "Blogs" AS "b"
+Microsoft.EntityFrameworkCore.ChangeTracking:Debug: Context 'Blog' started tracking '{Id: 1}' entity with key 'BloggingContext'.
+Microsoft.EntityFrameworkCore.Database.Command:Debug: A data reader was disposed.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closing connection to database 'main' on server 'C:\Users\mdepouw\source\repos\GitHub\spottedmahn\Experiments\EF Core SomeId1\EF Core SomeId1\bin\Debug\netcoreapp2.1\blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closed connection to database 'main' on server 'blogging.db'.
+Microsoft.EntityFrameworkCore.Query:Debug: Compiling query model: 
+'(from Blog <generated>_1 in DbSet<Blog>
+select [<generated>_1]).First()'
+Microsoft.EntityFrameworkCore.Query:Warning: Query: '(from Blog <generated>_1 in DbSet<Blog> select [<generated>_1]).First()' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+Microsoft.EntityFrameworkCore.Query:Debug: Optimized query model: 
+'(from Blog <generated>_1 in DbSet<Blog>
+select [<generated>_1]).First()'
+Microsoft.EntityFrameworkCore.Query:Debug: (QueryContext queryContext) => IEnumerable<Blog> _InterceptExceptions(
+    source: IEnumerable<Blog> _TrackEntities(
+        results: IEnumerable<Blog> _ToSequence(() => Blog First(IEnumerable<Blog> _ShapedQuery(
+                    queryContext: queryContext, 
+                    shaperCommandContext: SelectExpression: 
+                        SELECT "b"."BlogId", "b"."Url"
+                        FROM "Blogs" AS "b"
+                        LIMIT 1, 
+                    shaper: UnbufferedEntityShaper<Blog>))), 
+        queryContext: queryContext, 
+        entityTrackingInfos: { itemType: Blog }, 
+        entityAccessors: List<Func<Blog, object>> 
+        { 
+            Func<Blog, Blog>, 
+        }
+    ), 
+    contextType: ConsoleApp.SQLite.BloggingContext, 
+    logger: DiagnosticsLogger<Query>, 
+    queryContext: queryContext)
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Opening connection to database 'main' on server 'blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Opened connection to database 'main' on server 'C:\Users\mdepouw\source\repos\GitHub\spottedmahn\Experiments\EF Core SomeId1\EF Core SomeId1\bin\Debug\netcoreapp2.1\blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Command:Debug: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+Microsoft.EntityFrameworkCore.Database.Command:Debug: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "b"."BlogId", "b"."Url"
+FROM "Blogs" AS "b"
+LIMIT 1
+Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "b"."BlogId", "b"."Url"
+FROM "Blogs" AS "b"
+LIMIT 1
+Microsoft.EntityFrameworkCore.Database.Command:Debug: A data reader was disposed.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closing connection to database 'main' on server 'C:\Users\mdepouw\source\repos\GitHub\spottedmahn\Experiments\EF Core SomeId1\EF Core SomeId1\bin\Debug\netcoreapp2.1\blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closed connection to database 'main' on server 'blogging.db'.
+Microsoft.EntityFrameworkCore.ChangeTracking:Debug: 'BloggingContext' generated temporary value '-2147482647' for the 'Id' property of new 'Post' entity.
+Microsoft.EntityFrameworkCore.ChangeTracking:Debug: Context 'Post' started tracking '{Id: -2147482647}' entity with key 'BloggingContext'.
+Microsoft.EntityFrameworkCore.Update:Debug: SaveChanges starting for 'BloggingContext'.
+Microsoft.EntityFrameworkCore.ChangeTracking:Debug: DetectChanges starting for 'BloggingContext'.
+Microsoft.EntityFrameworkCore.ChangeTracking:Debug: DetectChanges completed for 'BloggingContext'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Opening connection to database 'main' on server 'blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Opened connection to database 'main' on server 'C:\Users\mdepouw\source\repos\GitHub\spottedmahn\Experiments\EF Core SomeId1\EF Core SomeId1\bin\Debug\netcoreapp2.1\blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Command:Debug: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+Microsoft.EntityFrameworkCore.Database.Transaction:Debug: Beginning transaction with isolation level 'Serializable'.
+Microsoft.EntityFrameworkCore.Database.Command:Debug: Executing DbCommand [Parameters=[@p0='1' (DbType = String), @p1='', @p2='Some content' (Size = 12), @p3='Hello World' (Size = 11)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Posts" ("BlogId", "BlogId1", "Content", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "PostId"
+FROM "Posts"
+WHERE changes() = 1 AND "PostId" = last_insert_rowid();
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Diagnostics.StackTrace.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Reflection.Metadata.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.IO.FileSystem.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.Tasks.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Microsoft.EntityFrameworkCore.Database.Command:Error: Failed executing DbCommand (4ms) [Parameters=[@p0='1' (DbType = String), @p1='', @p2='Some content' (Size = 12), @p3='Hello World' (Size = 11)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Posts" ("BlogId", "BlogId1", "Content", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "PostId"
+FROM "Posts"
+WHERE changes() = 1 AND "PostId" = last_insert_rowid();
+
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'table Posts has no column named BlogId1'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+Microsoft.EntityFrameworkCore.Database.Transaction:Debug: Disposing transaction.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closing connection to database 'main' on server 'C:\Users\mdepouw\source\repos\GitHub\spottedmahn\Experiments\EF Core SomeId1\EF Core SomeId1\bin\Debug\netcoreapp2.1\blogging.db'.
+Microsoft.EntityFrameworkCore.Database.Connection:Debug: Closed connection to database 'main' on server 'blogging.db'.
+Microsoft.EntityFrameworkCore.Update:Error: An exception occurred in the database while saving changes for context type 'ConsoleApp.SQLite.BloggingContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Microsoft.Data.Sqlite.SqliteException: SQLite Error 1: 'table Posts has no column named BlogId1'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.NoopExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Microsoft.Data.Sqlite.SqliteException: SQLite Error 1: 'table Posts has no column named BlogId1'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.NoopExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Exception thrown: 'Microsoft.EntityFrameworkCore.DbUpdateException' in Microsoft.EntityFrameworkCore.dll
+An unhandled exception of type 'Microsoft.EntityFrameworkCore.DbUpdateException' occurred in Microsoft.EntityFrameworkCore.dll
+An error occurred while updating the entries. See the inner exception for details.
+
+The program '[26276] dotnet.exe: Program Trace' has exited with code 0 (0x0).
+The program '[26276] dotnet.exe' has exited with code -1 (0xffffffff).
