@@ -37,7 +37,10 @@ namespace ConsoleApp.SQLite
                 .HasColumnName("PostId");
 
                 post.HasOne(p => p.Blog)
-                .WithMany()
+                //.WithMany()
+                //as stated by smitpatel: 'By using WithMany without parameter...'
+                //add the Posts reference and it works! 
+                .WithMany(b => b.Posts)
                 .HasForeignKey(p => p.BlogId);
             });
 

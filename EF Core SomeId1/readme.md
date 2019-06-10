@@ -9,3 +9,5 @@ FROM "Posts"
 WHERE changes() = 1 AND "PostId" = last_insert_rowid();  
 
 ![Db Schema](readme-images/db-schema.png)
+
+https://github.com/aspnet/EntityFrameworkCore/issues/15990
