@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    //var homeTest = new SomeHomeClass { MyProperty = "yeah, it works" }; //not visible
+    var orderTest = new SomeOrderClass { MyProperty = "yeah, it works" };
+    var errorTest = new ErrorViewModel { RequestId = "cool, global still works" };
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Orders Page Test</h1>
+</div>
+<div class="test-results">
+    <p>MultipleViewImportsQm.Models.ErrorTest: <span class="test-success">@errorTest.RequestId.ToString()</span></p>
+    <p>MultipleViewImportsQm.Models.Home.SomeHomeClass: <span class="test-success">not visible as expected</span></p>
+    <p>MultipleViewImportsQm.Models.Orders.SomeOrderClass: <span class="test-success">@orderTest.MyProperty.ToString()</span></p>
+</div>
