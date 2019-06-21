@@ -1,6 +1,4 @@
-using System;
-
-namespace Multiple__ViewImports_QM.Models
+namespace MultipleViewImportsQm.Models
 {
     public class ErrorViewModel
     {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using MultipleViewImportsQm.Models;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Multiple__ViewImports_QM.Models;
 
-namespace Multiple__ViewImports_QM.Controllers
+namespace MultipleViewImportsQm.Controllers
 {
     public class HomeController : Controller
     {

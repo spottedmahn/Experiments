@@ -1,4 +1,4 @@
-﻿namespace Multiple__ViewImports_QM.Models.Home
+﻿namespace MultipleViewImportsQm.Models.Home
 {
     public class SomeHomeClass
     {

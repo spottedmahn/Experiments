@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Multiple__ViewImports_QM
+namespace MultipleViewImportsQm
 {
     public class Program
     {

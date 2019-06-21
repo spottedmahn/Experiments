@@ -1,4 +1,4 @@
-﻿namespace Multiple__ViewImports_QM.Models.Orders
+﻿namespace MultipleViewImportsQm.Models.Orders
 {
     public class SomeOrderClass
     {

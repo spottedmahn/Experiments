@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    //var homeTest = //not visible
+    var orderTest = new SomeOrderClass { MyProperty = "cool, area global still works" };
+    //var errorTest = //not visible
+    var adminModelTest = new AdminModel { MyProperty = "local import working" };
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Admin Area Page Test</h1>
+</div>
+<div class="test-results">
+    <p>MultipleViewImportsQm.Models.ErrorTest: <span class="test-failure">.\Views\_ViewImports not visible</span></p>
+    <p>MultipleViewImportsQm.Models.Home.SomeHomeClass: <span class="test-success">not visible as expected</span></p>
+    <p>MultipleViewImportsQm.Models.Orders.SomeOrderClass: <span class="test-success">@orderTest.MyProperty.ToString()</span></p>
+    <p>MultipleViewImportsQm.Areas.Admin.Models.AdminModel: <span class="test-success">@adminModelTest.MyProperty.ToString()</span></p>
+</div>

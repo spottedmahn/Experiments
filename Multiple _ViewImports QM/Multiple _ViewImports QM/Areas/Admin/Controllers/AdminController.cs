@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MultipleViewImportsQm.Controllers
+namespace MultipleViewImportsQm.Areas.Controllers
 {
-    public class OrdersController : Controller
+    [Area("Admin")]
+    public class AdminController : Controller
     {
         public IActionResult Index()
         {
