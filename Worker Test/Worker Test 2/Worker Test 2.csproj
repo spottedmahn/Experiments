@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>dotnet-Worker_Test_2-121F29AB-2DF4-4FCD-8737-8FAEF735767C</UserSecretsId>
+    <RootNamespace>Worker_Test_2</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview7.19352.13" />
+  </ItemGroup>
+</Project>

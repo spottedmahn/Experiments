@@ -1,0 +1,109 @@
+{
+  "parameters": {
+    "name2": {
+      "type": "string"
+    },
+    "skuCode": {
+      "type": "string"
+    }
+    //,
+    //"appInsightsName": {
+    //  "type": "string"
+    //}
+  },
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "name": "[parameters('name2')]",
+      "type": "Microsoft.Web/sites",
+      "properties": {
+        "siteConfig": {
+          "appSettings": [
+            {
+              "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+              //"value": "hack so that azure sees app insights"
+              //"value": "[reference(concat('Microsoft.Insights/components/', parameters('appInsightsName'))).InstrumentationKey]"
+              "value": "[reference(concat('Microsoft.Insights/components/', parameters('name2'))).InstrumentationKey]"
+            },
+            {
+              "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
+              "value": "~2"
+            },
+            {
+              "name": "APPINSIGHTS_SNAPSHOTFEATURE_VERSION",
+              "value": "1.0.0"
+            },
+            {
+              "name": "APPINSIGHTS_PROFILERFEATURE_VERSION",
+              "value": "disabled"
+            },
+            {
+              "name": "InstrumentationEngine_EXTENSION_VERSION",
+              "value": "disabled"
+            },
+            {
+              "name": "SnapshotDebugger_EXTENSION_VERSION",
+              "value": "disabled"
+            },
+            {
+              "name": "XDT_MicrosoftApplicationInsights_Mode",
+              "value": "recommended"
+            },
+            {
+              "name": "XDT_MicrosoftApplicationInsights_BaseExtensions",
+              "value": "disabled"
+            },
+            {
+              "name": "DiagnosticServices_EXTENSION_VERSION",
+              "value": "~3"
+            }
+          ]
+        },
+        "name": "[parameters('name2')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('name2'))]"
+      },
+      "dependsOn": [
+        //"[concat('Microsoft.Web/serverfarms/', parameters('name2'))]",
+        "[resourceId('Microsoft.Web/serverfarms', parameters('name2'))]",
+        //"[resourceId('Microsoft.Insights/components', parameters('appInsightsName'))]"
+        "[resourceId('Microsoft.Insights/components', parameters('name2'))]"
+        //"[concat('Microsoft.Insights/components/', 'miked')]"
+      ],
+      "apiVersion": "2016-08-01",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "App Service"
+      }
+    },
+    {
+      "apiVersion": "2016-09-01",
+      "name": "[parameters('name2')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "name": "[parameters('name2')]",
+        "numberOfWorkers": "1"
+      },
+      "sku": {
+        "Name": "[parameters('skuCode')]"
+      },
+      "tags": {
+        "displayName": "App Service Plan"
+      }
+    },
+    {
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('name2')]",
+      "type": "Microsoft.Insights/components",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "Application_Type": "web"
+      },
+      "kind": "web",
+      "tags": {
+        "displayName": "App Insights"
+      }
+    }
+  ]
+}
