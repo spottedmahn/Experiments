@@ -15,6 +15,7 @@ namespace MS_Tests_Friendly_Test_Names
         public void Blah2()
         {
             //vs git squash fake commit 1
+            //vs git squash fake commit 2
         }
     }
 }
