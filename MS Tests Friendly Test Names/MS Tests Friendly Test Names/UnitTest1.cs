@@ -14,6 +14,7 @@ namespace MS_Tests_Friendly_Test_Names
         [TestMethod("2) Can VS please implement 'proper emojis'? 😜")]
         public void Blah2()
         {
+            //vs git squash fake commit 1
         }
     }
 }
